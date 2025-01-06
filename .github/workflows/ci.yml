@@ -33,5 +33,5 @@ jobs:
       # 4. Exécuter les tests de l'API
       - name: Run FastAPI tests
         run: |
-          cd fastapi_app
+          cd Projet_7_API
           pytest ../tests/test_fastapi.py

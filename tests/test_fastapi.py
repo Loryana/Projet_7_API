@@ -1,6 +1,7 @@
 import unittest
 from fastapi.testclient import TestClient
 from fastapi_p7.app import app  # Assurez-vous que le chemin correspond à votre projet
+import pandas as pd
 
 class TestFastAPI(unittest.TestCase):
     def setUp(self):

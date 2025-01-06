@@ -29,9 +29,3 @@ jobs:
           cd fastapi_p7
           pip install -r requirements.txt
           pip install pytest  # Pour exécuter les tests
-
-      # 4. Installer les dépendances pour Streamlit
-      - name: Install dependencies for Streamlit
-        run: |
-          cd streamlit_p7
-          pip install -r requirements.txt

@@ -29,3 +29,9 @@ jobs:
           cd fastapi_p7
           pip install -r requirements.txt
           pip install pytest  # Pour exécuter les tests
+
+      # 4. Exécuter les tests de l'API
+      - name: Run FastAPI tests
+        run: |
+          cd fastapi_app
+          pytest ../tests/test_fastapi.py

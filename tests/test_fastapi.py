@@ -37,7 +37,7 @@ class TestFastAPI(unittest.TestCase):
         ligne = df.iloc[0]
         input_data = ligne.to_dict()
 
-        first_feature = 'CODE_GENDER'
+        first_feature = next(iter(payload.keys()))
         input_data[first_feature] = "invalid"
 
         response = self.client.post("/predict/", json=input_data)
@@ -49,7 +49,7 @@ class TestFastAPI(unittest.TestCase):
         ligne = df.iloc[0]
         input_data = ligne.to_dict()
     
-        first_feature = 'CODE_GENDER'
+        first_feature = next(iter(payload.keys()))
         input_data.pop(first_feature)
 
         response = self.client.post("/predict/", json=input_data)

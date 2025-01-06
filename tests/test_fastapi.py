@@ -22,7 +22,7 @@ class TestFastAPI(unittest.TestCase):
     def test_predict_endpoint_success(self):
         # Tester la route POST /predict/ avec des données valides
         df = self.load_data_test()
-        ligne = df.iloc[0]
+        ligne = df
         input_data = ligne.to_dict()
 
         response = self.client.post("/predict/", json=input_data)
@@ -34,7 +34,7 @@ class TestFastAPI(unittest.TestCase):
     def test_predict_endpoint_invalid_data(self):
         # Tester la route POST /predict/ avec des données invalides
         df = self.load_data_test()
-        ligne = df.iloc[0]
+        ligne = df
         input_data = ligne.to_dict()
 
         first_feature = 'CODE_GENDER'
@@ -46,7 +46,7 @@ class TestFastAPI(unittest.TestCase):
     def test_predict_endpoint_missing_data(self):
         # Tester la route POST /predict/ avec des données manquantes
         df = self.load_data_test()
-        ligne = df.iloc[0]
+        ligne = df
         input_data = ligne.to_dict()
     
         first_feature = 'CODE_GENDER'

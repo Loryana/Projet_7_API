@@ -1,6 +1,6 @@
 import unittest
 from fastapi.testclient import TestClient
-from fastapi_p7.app import run_main  # Assurez-vous que le chemin correspond à votre projet
+from fastapi_p7.app import app  # Assurez-vous que le chemin correspond à votre projet
 
 class TestFastAPI(unittest.TestCase):
     def setUp(self):

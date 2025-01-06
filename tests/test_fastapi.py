@@ -1,6 +1,6 @@
 import unittest
 from fastapi.testclient import TestClient
-from fastapi_p7.app import app  # Assurez-vous que le chemin correspond à votre projet
+from fastapi_p7.app import app
 import pandas as pd
 
 class TestFastAPI(unittest.TestCase):
@@ -41,7 +41,7 @@ class TestFastAPI(unittest.TestCase):
         input_data[first_feature] = "invalid"
 
         response = self.client.post("/predict/", json=input_data)
-        self.assertEqual(response.status_code, 422)  # FastAPI retourne 422 pour des données invalides
+        self.assertEqual(response.status_code, 400) 
 
     def test_predict_endpoint_missing_data(self):
         # Tester la route POST /predict/ avec des données manquantes
@@ -53,7 +53,7 @@ class TestFastAPI(unittest.TestCase):
         input_data.pop(first_feature)
 
         response = self.client.post("/predict/", json=input_data)
-        self.assertEqual(response.status_code, 422)  # Erreur car certaines données sont manquantes
+        self.assertEqual(response.status_code, 400) 
 
 if __name__ == "__main__":
     unittest.main()

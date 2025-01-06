@@ -10,7 +10,7 @@ class TestFastAPI(unittest.TestCase):
 
     def load_data_test(self):
         #Charger les données nécessaires pour le test
-        df = pd.read_csv('test_api.csv', index_col = 0)
+        df = pd.read_csv('test_api.csv')
         return df
 
     def test_root_endpoint(self):

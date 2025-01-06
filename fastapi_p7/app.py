@@ -3,7 +3,7 @@ import mlflow
 import pandas as pd
 
 # Charger le modèle MLflow
-model_uri = "mlflow_model_smote" 
+model_uri = "./mlflow_model_smote" 
 model = mlflow.sklearn.load_model(model_uri)
 
 # Création de l'app

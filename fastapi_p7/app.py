@@ -16,10 +16,18 @@ def read_root():
 @app.post("/predict/")
 def predict(data: dict): # Convertir les données en DataFrame ou autre format attendu
     
-    input_data = pd.DataFrame([data])
+    try :
+        input_data = pd.DataFrame([data])
 
-    # Faire des prédictions
-    probabilities = model.predict_proba(input_data)[:, 1]
-    predictions = (probabilities >= 0.38).astype(int)
+        # Faire des prédictions
+        probabilities = model.predict_proba(input_data)[:, 1]
+        predictions = (probabilities >= 0.38).astype(int)
+        
+        return {"predictions": predictions.tolist()}
     
-    return {"predictions": predictions.tolist()}
+    except ValueError as e:
+        # Retourner une erreur 400 si la conversion échoue
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Invalid data type provided: {e}"
+        )

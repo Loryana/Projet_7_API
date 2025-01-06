@@ -7,11 +7,11 @@ class TestFastAPI(unittest.TestCase):
         # Initialisation du client de test
         self.client = TestClient(app)
 
-    def load_data_test:
+    def load_data_test(self):
         #Charger les données nécessaires pour le test
         df = pd.read_csv('test_api.csv', index_col = 0)
         input_data = df.to_dict()
-    return input_data
+        return input_data
 
     def test_root_endpoint(self):
         # Tester la route GET /
@@ -44,7 +44,7 @@ class TestFastAPI(unittest.TestCase):
     
         first_feature = next(iter(input_data.keys()))
         input_data.pop(first_feature)
-        
+
         response = self.client.post("/predict/", json=input_data)
         self.assertEqual(response.status_code, 422)  # Erreur car certaines données sont manquantes
 

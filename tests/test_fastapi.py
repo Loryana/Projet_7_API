@@ -26,6 +26,7 @@ class TestFastAPI(unittest.TestCase):
         input_data = ligne.to_dict()
 
         response = self.client.post("/predict/", json=input_data)
+        
         self.assertEqual(response.status_code, 200)
         self.assertIn("predictions", response.json())
         self.assertIsInstance(response.json()["predictions"], list)
@@ -36,7 +37,7 @@ class TestFastAPI(unittest.TestCase):
         ligne = df.iloc[0]
         input_data = ligne.to_dict()
 
-        first_feature = next(iter(input_data.keys()))
+        first_feature = 'CODE_GENDER'
         input_data[first_feature] = "invalid"
 
         response = self.client.post("/predict/", json=input_data)
@@ -48,7 +49,7 @@ class TestFastAPI(unittest.TestCase):
         ligne = df.iloc[0]
         input_data = ligne.to_dict()
     
-        first_feature = next(iter(input_data.keys()))
+        first_feature = 'CODE_GENDER'
         input_data.pop(first_feature)
 
         response = self.client.post("/predict/", json=input_data)

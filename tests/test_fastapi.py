@@ -17,7 +17,7 @@ class TestFastAPI(unittest.TestCase):
         # Tester la route GET /
         response = self.client.get("/")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(), {"message": "Bienvenue dans l'API de prédiction"})
+        self.assertEqual(response.json(), {"message": "Bienvenue"})
 
     def test_predict_endpoint_success(self):
         # Tester la route POST /predict/ avec des données valides

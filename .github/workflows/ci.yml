@@ -34,4 +34,4 @@ jobs:
       - name: Run FastAPI tests
         run: |
           cd fastapi_p7
-          pytest ../tests/test_fastapi.py
+          pytest ../tests/test_app.py

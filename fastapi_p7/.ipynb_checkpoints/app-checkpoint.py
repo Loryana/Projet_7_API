@@ -23,7 +23,7 @@ def predict(data: dict): # Convertir les données en DataFrame ou autre format a
         probabilities = model.predict_proba(input_data)[:, 1]
         predictions = (probabilities >= 0.38).astype(int)
         
-        return {"predictions": probabilities.tolist()}
+        return {"predictions": predictions.tolist()}
     
     except ValueError as e:
         # Retourner une erreur 400 si la conversion échoue

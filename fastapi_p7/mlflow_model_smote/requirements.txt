@@ -1,4 +1,4 @@
-mlflow==2.18.0
+mlflow==2.20.3
 cffi==1.17.1
 cloudpickle==3.0.0
 cytoolz==0.12.2
